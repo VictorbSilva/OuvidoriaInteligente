@@ -4,7 +4,7 @@ Carrega as manifestações, gera representações (BoW, TF-IDF e embeddings), ca
 similaridades, detecta duplicatas e divide textos longos em chunks.
 
 O modelo de embeddings (sentence-transformers) é baixado da internet na primeira execução.
-Para testes sem rede, defina OUVIDORIA_EMBEDDER=falso: o carregador passa a devolver um
+Para rodar sem rede, defina OUVIDORIA_EMBEDDER=falso: o carregador passa a devolver um
 embedder determinístico (EmbedderFalso) com a mesma interface de `encode`.
 """
 
@@ -52,7 +52,7 @@ def carregar_duplicatas_reais(caminho: str | Path = PASTA / "duplicatas_reais.js
 
 # ----------------------------------------------------------------------------- embeddings
 class EmbedderFalso:
-    """Dublê do SentenceTransformer para testes: hash de trigramas de caracteres em 256 dimensões."""
+    """Substituto local do SentenceTransformer: hash de trigramas de caracteres em 256 dimensões."""
 
     dimensao = 256
 
@@ -72,7 +72,7 @@ class EmbedderFalso:
 
 @lru_cache(maxsize=4)
 def carregar_modelo(nome: str = MODELO_PADRAO):
-    """SentenceTransformer do nome dado (ou o dublê, se OUVIDORIA_EMBEDDER=falso)."""
+    """SentenceTransformer do nome dado (ou o substituto local, se OUVIDORIA_EMBEDDER=falso)."""
     if os.environ.get("OUVIDORIA_EMBEDDER") == "falso":
         return EmbedderFalso()
     warnings.filterwarnings("ignore", message="IProgress not found")
