@@ -10,5 +10,6 @@ A ouvidoria de um município recebe milhares de manifestações por mês e hoje 
 | [`a15/`](a15/) | 2 — Detecção de duplicatas (função, heatmap, escolha do limiar, falsos positivos e negativos) | `deteccao_duplicatas.ipynb` |
 | [`a16/`](a16/) | 3 — Chunking de manifestações longas (RecursiveCharacterTextSplitter, overlap, PCA e t-SNE) | `chunking_manifestacoes.ipynb` |
 | [`a17/`](a17/) | 4 — Buscador semântico + app Streamlit (busca, base completa, espaço vetorial e chunking) | `app_ouvidoria.py` |
+| [`a18/`](a18/) | Relatório final (decisões, dificuldades e aprendizados das 4 entregas) | `RELATORIO.pdf` |
 
-Cada pasta é independente e tem o próprio `README.md` (enunciado, como rodar e suposições), `requirements.txt` e uma cópia dos dados (`manifestacoes.json`, 40 manifestações montadas no esquema do enunciado). Cada entrega foi aprovada numa auditoria independente antes da publicação.
+Cada pasta é independente e tem o próprio `README.md` (enunciado, como rodar e suposições), `requirements.txt` e uma cópia dos dados (`manifestacoes.json`, 40 manifestações montadas no esquema do enunciado).
